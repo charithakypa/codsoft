@@ -1,0 +1,80 @@
+
+import random
+
+# defing a class for quiz game
+
+class QuizGame:
+
+    # intializing questions and score
+
+    def __init__(self, questions):
+        self.questions = questions
+        self.score = 0
+
+    # printing the instructions
+
+    def display_welcome_message(self):
+        print("Welcome to the Quiz Game!")
+        print("Answer the  fill-in-the-blank questions on a specific topic.")
+
+    # printing the questions
+
+    def present_quiz_questions(self):
+        for index, question in enumerate(self.questions):
+            print(f"Question {index + 1}: {question['question']}")
+
+            # asking for the answer
+            user_answer = input("Your answer: ")
+            self.evaluate_user_answer(question, user_answer)
+
+    def evaluate_user_answer(self, question, user_answer):
+
+        # Compare user's answer with the correct answer
+        # if correct increasing score by 5
+
+        if user_answer.lower() == question['answer'].lower():
+            print("Correct!")
+            self.score += 5
+
+        # if not print correct answers
+
+        else:
+            print("Incorrect!")
+            print(f"The correct answer is: {question['answer']}")
+
+    # printing final result
+
+    def display_final_results(self):
+        print("Quiz completed!")
+        print(f"Your final score is: {self.score}/{len(self.questions) * 5}")
+
+    # asking the user if user want to play again or not
+
+    def play_again(self):
+        play_again = input("Do you want to play again? (yes/no): ")
+        return play_again.lower() == "yes"
+
+    def start(self):
+        self.display_welcome_message()
+        while True:
+
+           #self.load_quiz_questions()
+
+            self.present_quiz_questions()
+            self.display_final_results()
+            if not self.play_again():
+                print("Thank you for playing!")
+                break
+
+# questions for the quiz
+
+questions = [
+    {"question": "What is the capital of France?", "answer": "Paris"},
+    {"question": "What is 5 + 3?", "answer": "8"},
+    {"question": "What is currency in INDIA ?", "answer": "Rupee"},
+    {"question": "Name the national bird of INDIA ?", "answer": "Peacock"},
+    {"question": "INDIA lies in which continent?", "answer": "Asia"},
+]
+
+quiz_game = QuizGame(questions)
+quiz_game.start()
