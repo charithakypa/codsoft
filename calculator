@@ -1,0 +1,73 @@
+# defining a function to do Addition:
+def addition(a,b):
+  return a+b
+
+# defining a function to do Subtraction:
+def subtraction(a,b):
+  return a-b
+
+# defining a function to do Multiplication:
+def multiplication(a,b):
+  return a*b
+
+# defining a function to do Division:
+def division(a,b):
+  if b==0:
+    print("error:division with zero is not possible")
+
+  else:
+    return a/b
+
+# defining a function to do Modulardivision:
+def modulardivision(a,b):
+  if b==0:
+    print("error:division with zero is not possible")
+
+  else:
+    return int(a//b)
+
+# defining a function to do Power of a number:
+def power(a,b):
+  if b==0:
+    return 1
+
+  elif b==1:
+    return a
+
+  else:
+    return a**b
+
+# printing calculator
+print("--------------------------------------SIMPLE CALCULATOR--------------------------------------")
+
+# Taking input of numbers and opretor from the user
+num1=float(input("Enter first number:"))
+num2=float(input("Enter second number:"))
+operator=input("Enter the operator(+,-,*,/,//,**):")
+
+# Checking if the operator is equal to +
+if operator=="+":
+  result=addition(num1,num2)
+
+# Checking if the operator is equal to -
+elif operator=="-":
+  result=subtraction(num1,num2)
+
+# Checking if the operator is equal to *
+elif operator=="*":
+  result=multiplication(num1,num2)
+
+# Checking if the operator is equal to /
+elif operator=="/":
+  result=division(num1,num2)
+
+# Checking if the operator is equal to //
+elif operator=="//":
+  result=modulardivision(num1,num2)
+
+# Checking if the operator is equal to **
+elif operator=="**":
+  result=power(num1,num2)
+
+# printing the result obtained
+print("result :",result)
